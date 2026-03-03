@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankit Kumar Sah | Premium Portfolio</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Basic structure jo style.css ke alawa zaroori hai */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; cursor: none; }
+        body { background-color: #030305; color: #ffffff; overflow-x: hidden; }
+        
+        #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, #00f0ff, #ff00c8); z-index: 1000; width: 0%; box-shadow: 0 0 10px #00f0ff; }
+        .cursor-dot { width: 8px; height: 8px; background: #00f0ff; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); box-shadow: 0 0 10px #00f0ff; }
+        .cursor-outline { width: 40px; height: 40px; border: 1px solid rgba(0, 240, 255, 0.5); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s; }
+        
+        section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 100px 10%; text-align: center; position: relative; z-index: 10; }
+        
+        .glass-card { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 24px; padding: 60px; max-width: 900px; width: 100%; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4); transform-style: preserve-3d; }
+        .glass-card h2 { transform: translateZ(50px); }
+        .glass-card p { transform: translateZ(30px); }
+
+        h1 { font-size: 5rem; font-weight: 900; letter-spacing: -2px; margin-bottom: 20px; text-transform: uppercase; }
+        .text-gradient { background: linear-gradient(to right, #00f0ff, #ff00c8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .typing-text { font-size: 2rem; color: #a1a1aa; height: 40px; margin-bottom: 30px; }
+        h2 { font-size: 3rem; margin-bottom: 30px; }
+        p { font-size: 1.2rem; line-height: 1.8; color: #d4d4d8; margin-bottom: 20px; }
+
+        .skills-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 40px; transform: translateZ(40px); }
+        .skill-tag { padding: 15px 30px; background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.2); border-radius: 50px; font-weight: bold; font-size: 1.1rem; transition: 0.3s; }
+        .skill-tag:hover { background: #00f0ff; color: #000; box-shadow: 0 0 20px #00f0ff; transform: translateY(-5px); }
+
+        .cyber-btn { display: inline-block; padding: 18px 45px; margin-top: 40px; font-size: 1.2rem; font-weight: bold; color: #fff; background: transparent; border: 2px solid #ff00c8; border-radius: 4px; text-transform: uppercase; letter-spacing: 3px; position: relative; overflow: hidden; transition: 0.3s; text-decoration: none; transform: translateZ(40px); }
+        .cyber-btn:hover { background: #ff00c8; box-shadow: 0 0 30px #ff00c8; color: #000; }
+        
+        footer { padding: 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); }
+        .social-link { color: #00f0ff; text-decoration: none; font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; transition: 0.3s; display: inline-block; }
+    </style>
+</head>
+<body>
+
+    <div id="progress-bar"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1 class="gsap-reveal text-gradient">Ankit Kumar Sah</h1>
+            <div class="typing-text gsap-reveal"><span class="typing"></span></div>
+            <a href="#about" class="cyber-btn gsap-reveal">Discover My Work</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="glass-card gsap-fade tilt-card">
+            <h2>About <span class="text-gradient">Me</span></h2>
+            <p>I am a CSE student based in Sitamarhi, Bihar, driven by a passion for creating immersive digital experiences. I specialize in merging raw code with stunning aesthetics.</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="glass-card gsap-fade tilt-card">
+            <h2>Core <span class="text-gradient">Arsenal</span></h2>
+            <div class="skills-container">
+                <div class="skill-tag">Web Development</div>
+                <div class="skill-tag">Blender 3D</div>
+                <div class="skill-tag">HTML / CSS / JS</div>
+                <div class="skill-tag">C++ Programming</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="glass-card gsap-fade tilt-card">
+            <h2>Initiate <span class="text-gradient">Connection</span></h2>
+            <p>Ready to collaborate on a groundbreaking project or discuss 3D design concepts?</p>
+            <br>
+            <a href="https://instagram.com/ankryptor" target="_blank" class="social-link">@ankryptor</a>
+        </div>
+    </section>
+
+    <footer>
+        <p style="color: #666; font-size: 0.9rem; letter-spacing: 1px;">DESIGNED BY ANKIT KUMAR SAH &copy; 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
